@@ -12,22 +12,23 @@ test.afterEach(async ({ page }, testInfo) => {
 });
 
 test("test login", async ({ page }) => {
-  await page.goto(`${process.env.BASE_URL}`);
-
+  const baseUrl = process.env.BASE_URL;
   const linkToLoginForm = page.getByRole("link", { name: "Sign in" });
   const loginInput = page.locator("#login_field");
   const passwordInput = page.locator("#password");
   const loginButton = page.getByRole("button", { name: "Sign in" });
+  const password = process.env.PASSWORD;
+  const email = process.env.EMAIL;
+
+  await page.goto(`${baseUrl}`);
 
   await linkToLoginForm.click();
 
-  await expect(page).toHaveURL(`${process.env.BASE_URL}/login`);
+  await expect(page).toHaveURL(`${baseUrl}/login`);
 
-  await loginInput.fill(`${process.env.EMAIL}`);
+  await loginInput.fill(`${email}`);
 
-  await passwordInput.fill(`${process.env.PASSWORD}`);
+  await passwordInput.fill(`${password}`);
 
   await loginButton.click();
-
-  await page.screenshot({ path: "img/login.jpg" });
 });

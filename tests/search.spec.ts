@@ -12,11 +12,11 @@ test.afterEach(async ({ page }, testInfo) => {
 });
 
 test("test search", async ({ page }) => {
-  await page.goto(`${process.env.BASE_URL}`);
-
   const searchInput = page.getByPlaceholder("Search GitHub");
   const searchButton = page.locator("#jump-to-results");
   const usersButton = page.getByRole("link", { name: "Users" });
+
+  await page.goto(`${process.env.BASE_URL}`);
 
   await searchInput.fill("artemkuskin");
 
