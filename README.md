@@ -27,7 +27,7 @@ npx playwright test links.spec.ts
 ## Run a set of test files
 
 ```
-npx playwright test tests/links.spec.ts tests/search.spec.ts
+npx playwright test tests/links.spec.ts tests/login.spec.ts
 ```
 
 ## Run files that have landing or login in the file name
@@ -39,7 +39,7 @@ npx playwright test landing login
 ## Run the test with the title
 
 ```
-npx playwright test -g "test search"
+npx playwright test -g "test login"
 ```
 
 ## Running tests in headed mode
@@ -65,7 +65,7 @@ npx playwright test --debug
 ## Debugging one test file
 
 ```
-npx playwright test search.spec.ts --debug
+npx playwright test login.spec.ts --debug
 ```
 
 ## View the report
